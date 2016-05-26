@@ -1,0 +1,23 @@
+aniso8601==1.1.0
+-e git://github.com/fmfn/BayesianOptimization.git#egg=bayesian-optimization
+Flask==0.10.1
+Flask-RESTful==0.3.5
+gunicorn==19.6.0
+itsdangerous==0.24
+Jinja2==2.8
+Lasagne==0.1
+MarkupSafe==0.23
+-e git://github.com/agajews/Neural-Models#egg=neural-models
+numpy==1.11.0
+pbr==1.10.0
+python-dateutil==2.5.3
+pytz==2016.4
+scikit-learn==0.17.1
+scipy==0.17.1
+six==1.10.0
+stevedore==1.14.0
+Theano==0.8.2
+virtualenv==15.0.1
+virtualenv-clone==0.2.6
+Werkzeug==0.11.10
+youtube-dl==2016.5.21.2
