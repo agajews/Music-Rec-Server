@@ -12,6 +12,7 @@ user_parser = RequestParser()
 user_parser.add_argument('user_id', type=int)
 user_parser.add_argument('song_name', type=str, action='append')
 user_parser.add_argument('song_artist', type=str, action='append')
+user_parser.add_argument('song_id', type=str, action='append')
 user_parser.add_argument('play_count', type=str, action='append')
 
 users = {}
@@ -30,12 +31,13 @@ class AddUser(Resource):
 
         user_songs = []
 
-        for name, artist, play_count in zip(
+        for name, artist, song_id, play_count in zip(
                 args['song_name'],
                 args['song_artist'],
+                args['song_id'],
                 args['play_count']):
 
-            song = Song(name, artist, play_count=play_count)
+            song = Song(name, artist, play_count=play_count, song_id=song_id)
             user_songs.append(song)
 
         user = User(user_id, user_songs)
