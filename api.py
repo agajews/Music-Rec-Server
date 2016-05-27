@@ -37,7 +37,12 @@ class AddUser(Resource):
                 args['song_id'],
                 args['play_count']):
 
-            song = Song(name, artist, play_count=play_count, song_id=song_id)
+            song = Song(
+                name=name,
+                artist=artist,
+                play_count=play_count,
+                song_id=song_id)
+
             user_songs.append(song)
 
         user = User(user_id, user_songs)
