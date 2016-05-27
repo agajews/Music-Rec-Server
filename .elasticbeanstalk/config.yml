@@ -1,0 +1,11 @@
+branch-defaults:
+  default:
+    environment: music-rec-env
+    group_suffix: null
+global:
+  application_name: music-recommendator
+  default_ec2_keyname: aws-eb
+  default_platform: Python 3.4
+  default_region: us-west-1
+  profile: eb-cli
+  sc: null
