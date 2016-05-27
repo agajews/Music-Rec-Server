@@ -17,7 +17,7 @@ user_parser.add_argument('play_count', type=str, action='append')
 
 users = {}
 
-model = setup_test_model
+model = setup_test_model()
 
 
 class AddUser(Resource):

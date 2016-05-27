@@ -3,7 +3,7 @@
 # Install dependencies
 sudo add-apt-repository -y ppa:fkrull/deadsnakes
 sudo apt-get update
-sudo apt-get install -y git python3.5 python3.5-dev python-pip python-dev build-essential gfortran libopenblas-dev liblapack-dev
+sudo apt-get install -y git python3.5 python3.5-dev python-pip python-dev build-essential gfortran libopenblas-dev liblapack-dev libav-tools lame
 # sudo apt-get install git gcc python34 python34-devel gcc-gfortran lapack lapack-devel blas blas-devel gcc-c++ -y
 
 # Enable swap
