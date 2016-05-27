@@ -3,7 +3,8 @@ from flask_restful import Resource, Api
 from flask_restful.reqparse import RequestParser
 
 from neural_models.music_recommendator.test_audio_model import User, Song
-from neural_models.music_recommendator.test_audio_model import setup_test_model, get_user_recs
+from neural_models.music_recommendator.test_audio_model import \
+    setup_test_model, get_user_recs
 
 app = Flask(__name__)
 api = Api(app)
@@ -51,10 +52,16 @@ class AddUser(Resource):
         print(user)
 
         try:
+            print('Adding filenames')
             user.add_filenames()
+
+            print('Adding wavs')
             user.add_wavs()
+
+            print('Adding embeddings')
             user.add_embeddings(model)
 
+            print('Generating recs')
             user.recs = get_user_recs(user, model)
 
         except Exception as e:
@@ -78,7 +85,7 @@ class Users(Resource):
 
 api.add_resource(AddUser, '/adduser')
 api.add_resource(Users, '/users')
-api.add_resource(UserRecs, '/recs/<int:user_id>')
+api.add_resource(UserRecs, '/recs/<string:user_id>')
 
 if __name__ == '__main__':
     app.run(debug=True)
