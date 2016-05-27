@@ -18,10 +18,6 @@ users = {}
 
 class AddUser(Resource):
 
-    def get(self):
-
-        return {'users': str(users)}
-
     def post(self):
 
         args = user_parser.parse_args()
@@ -39,7 +35,15 @@ class AddUser(Resource):
 
         users.append(User(user_id, user_songs))
 
+
+class Users(Resource):
+
+    def get(self):
+
+        return {'users': str(users)}
+
 api.add_resource(AddUser, '/adduser')
+api.add_resource(Users, '/users')
 
 if __name__ == '__main__':
     app.run(debug=True)
