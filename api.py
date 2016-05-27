@@ -36,7 +36,7 @@ class AddUser(Resource):
             user_songs.append(song)
 
         user = User(user_id, user_songs)
-        users.append(user)
+        users[user_id] = user
         print(users)
 
         # return {'message': 'success'}
