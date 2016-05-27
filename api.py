@@ -21,6 +21,8 @@ class AddUser(Resource):
     def post(self):
 
         args = user_parser.parse_args()
+        print(args)
+
         user_id = args['user_id']
 
         user_songs = []
