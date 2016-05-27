@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 from flask_restful.reqparse import RequestParser
 
-from neural_models.data.music_recommendator.lib import User, Song
+from neural_models.music_recommendator.test_audio_model import User, Song
 from neural_models.music_recommendator.test_audio_model import \
     setup_test_model, get_user_recs
 
