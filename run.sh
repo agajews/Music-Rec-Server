@@ -34,4 +34,4 @@ sudo rm /var/swap.1
 
 # Run server
 # python3.5 api.py
-~/envs/music-rec-server/bin/gunicorn api:app -p api.pid -b 0.0.0.0:8000 -D
+~/envs/music-rec-server/bin/gunicorn api:app -p api.pid -b 0.0.0.0:8000  # -D
