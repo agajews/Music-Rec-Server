@@ -54,7 +54,7 @@ class UserRecs(Resource):
 
     def get(self, user_id):
 
-        return users[user_id].recs
+        return {'recs': users[user_id].recs}
 
 
 class Users(Resource):
