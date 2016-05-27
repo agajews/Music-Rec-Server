@@ -37,6 +37,8 @@ class AddUser(Resource):
 
         users.append(User(user_id, user_songs))
 
+        return {'message': 'success'}
+
 
 class Users(Resource):
 
