@@ -26,7 +26,7 @@ workon music-rec-server
 
 # Install python dependencies
 pip install numpy
-pip install -r requirements.txt
+pip install -r requirements.txt --upgrade
 
 # Disable swap
 sudo swapoff /var/swap.1

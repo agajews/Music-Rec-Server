@@ -47,7 +47,11 @@ class AddUser(Resource):
         user.add_wavs()
         user.add_embeddings(model)
 
-        user.recs = get_user_recs(user, model)
+        try:
+            user.recs = get_user_recs(user, model)
+
+        except Exception as e:
+            print(e)
 
         return {'message': 'success'}
 
