@@ -6,6 +6,9 @@ from neural_models.music_recommendator.test_audio_model import User, Song
 from neural_models.music_recommendator.test_audio_model import \
     setup_test_model, get_user_recs
 
+import sys
+sys.path.append('neural_models/music_recommendator/test_audio_model')
+
 app = Flask(__name__)
 api = Api(app)
 
