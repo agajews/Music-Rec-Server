@@ -76,7 +76,8 @@ class UserRecs(Resource):
                 'message': 'success',
                 'recs': str(users[user_id].recs)}
 
-        except:
+        except Exception as e:
+            print(e)
             return {'message': 'no user recs yet'}
 
 
