@@ -72,7 +72,10 @@ class UserRecs(Resource):
     def get(self, user_id):
 
         try:
-            return {'recs': str(users[user_id].recs)}
+            return {
+                'message': 'success',
+                'recs': str(users[user_id].recs)}
+
         except:
             return {'message': 'no user recs yet'}
 
