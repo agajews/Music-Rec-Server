@@ -71,6 +71,8 @@ class UserRecs(Resource):
 
     def get(self, user_id):
 
+        user_id = str(user_id)
+
         try:
             return {
                 'message': 'success',
