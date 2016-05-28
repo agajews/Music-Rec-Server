@@ -52,36 +52,26 @@ class AddUser(Resource):
         user = User(user_id, user_songs)
         users[user_id] = user
 
-        print(user)
+        print('Adding filenames')
+        user.add_filenames()
 
-        try:
-            print('Adding filenames')
-            user.add_filenames()
+        print('Adding wavs')
+        user.add_wavs()
 
-            print('Adding wavs')
-            user.add_wavs()
+        print('Adding embeddings')
+        user.add_embeddings(model)
 
-            print('Adding embeddings')
-            user.add_embeddings(model)
+        print('Generating recs')
+        user.recs = get_user_recs(user, model)
 
-            print('Generating recs')
-            user.recs = get_user_recs(user, model)
-
-            print(users[user_id].recs)
-
-        except Exception as e:
-            print(e)
+        print(users[user_id].recs)
 
 
 class UserRecs(Resource):
 
     def get(self, user_id):
 
-        try:
-            return {'recs': users[user_id].recs}
-
-        except Exception as e:
-            print(e)
+        return {'recs': users[user_id].recs}
 
 
 class Users(Resource):
