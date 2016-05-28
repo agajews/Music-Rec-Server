@@ -31,7 +31,7 @@ class AddUser(Resource):
         args = user_parser.parse_args()
         print(args)
 
-        user_id = args['user_id']
+        user_id = str(args['user_id'])
 
         user_songs = []
 
@@ -70,8 +70,6 @@ class AddUser(Resource):
 class UserRecs(Resource):
 
     def get(self, user_id):
-
-        user_id = str(user_id)
 
         try:
             return {
