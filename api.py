@@ -112,7 +112,7 @@ class Users(Resource):
 
     def get(self):
 
-        res = {'all_users': users}
+        res = {'all_users': str(users)}
         return marshal(res, users_fields), 200
 
 api.add_resource(AddUser, '/adduser')
