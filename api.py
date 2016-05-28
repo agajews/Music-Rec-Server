@@ -66,6 +66,7 @@ class AddUser(Resource):
 
             print('Generating recs')
             user.recs = get_user_recs(user, model)
+            print(user.recs)
 
         except Exception as e:
             print(e)
@@ -77,7 +78,11 @@ class UserRecs(Resource):
 
     def get(self, user_id):
 
-        return {'recs': users[user_id].recs}
+        try:
+            return {'recs': users[user_id].recs}
+
+        except Exception as e:
+            print(e)
 
 
 class Users(Resource):
