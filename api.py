@@ -96,7 +96,7 @@ class UserRecs(Resource):
 
 
 users_fields = {
-    'all_users': fields.String()
+    'all_users': fields.List(fields.String())
 }
 
 
@@ -106,7 +106,7 @@ class Users(Resource):
 
         try:
             print(users.keys())
-            res = {'all_users': str(users)}
+            res = {'all_users': users.keys()}
             print(res)
             return marshal(res, users_fields), 200
         except Exception as e:
