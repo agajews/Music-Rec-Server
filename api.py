@@ -106,7 +106,7 @@ class Users(Resource):
 
         try:
             print(users.keys())
-            res = {'all_users': users.keys()}
+            res = {'all_users': list(users.keys())}
             print(res)
             return marshal(res, users_fields), 200
         except Exception as e:
