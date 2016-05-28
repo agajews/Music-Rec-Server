@@ -103,11 +103,17 @@ class UserRecs(Resource):
             return {'message': 'no user recs yet'}
 
 
+users_fields = {
+    'all_users': fields.String()
+}
+
+
 class Users(Resource):
 
     def get(self):
 
-        return {'users': str(users)}
+        res = {'all_users': users}
+        return marshal(res, users_fields), 200
 
 api.add_resource(AddUser, '/adduser')
 api.add_resource(Users, '/users')
