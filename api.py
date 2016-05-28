@@ -72,14 +72,21 @@ class UserRecs(Resource):
     def get(self, user_id):
 
         try:
+            recs = []
+            for song in users[user_id].recs:
+
+                song_data = {}
+                song_data['song_name'] = song.name
+                song_data['song_artist'] = song.artist
+                song_data['exp_play_count'] = song.exp_play_count
+
+                recs.append(song_data)
+
             return {
                 'message': 'success',
-                'recs': str(users[user_id].recs)}
+                'recs': recs}
 
         except Exception as e:
-            print(user_id)
-            print(users.keys())
-            print(users[user_id].recs)
             print(e)
             return {'message': 'no user recs yet'}
 
