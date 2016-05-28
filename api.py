@@ -1,12 +1,11 @@
 from flask import Flask
 from flask_restful import Resource, Api
+from flask_restful import fields, marshal
 from flask_restful.reqparse import RequestParser
 
 from neural_models.data.music_recommendator.lib import User, Song
 from neural_models.music_recommendator.test_audio_model import \
     setup_test_model, get_user_recs
-
-import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -66,6 +65,18 @@ class AddUser(Resource):
         print(users[user_id].recs)
 
 
+song_fields = {
+    'song_name': fields.String(),
+    'song_artist': fields.String(),
+    'exp_play_count': fields.Integer()
+}
+
+recs_fields = {
+    'recs': fields.List(fields.Nested(song_fields)),
+    'message': fields.String()
+}
+
+
 class UserRecs(Resource):
 
     def get(self, user_id):
@@ -85,7 +96,7 @@ class UserRecs(Resource):
             res['message'] = 'success'
             res['recs'] = recs
 
-            return json.dumps(res)
+            return marshal(res, recs_fields), 200
 
         except Exception as e:
             print(e)
