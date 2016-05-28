@@ -84,7 +84,7 @@ class UserRecs(Resource):
 
             return {
                 'message': 'success',
-                'recs': recs}
+                'recs': str(recs)}
 
         except Exception as e:
             print(e)
