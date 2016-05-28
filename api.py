@@ -104,10 +104,13 @@ class Users(Resource):
 
     def get(self):
 
-        print(users)
-        res = {'all_users': str(users)}
-        print(res)
-        return marshal(res, users_fields), 200
+        try:
+            print(users)
+            res = {'all_users': str(users)}
+            print(res)
+            return marshal(res, users_fields), 200
+        except Exception as e:
+            print(e)
 
 api.add_resource(AddUser, '/adduser')
 api.add_resource(Users, '/users')
