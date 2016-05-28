@@ -82,9 +82,11 @@ class UserRecs(Resource):
 
                 recs.append(song_data)
 
-            return {
-                'message': 'success',
-                'recs': str(recs)}
+            res = {}
+            res['message'] = 'success'
+            res['recs'] = recs
+
+            return res.json()
 
         except Exception as e:
             print(e)
