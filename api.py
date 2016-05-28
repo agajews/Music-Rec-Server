@@ -112,6 +112,7 @@ class Users(Resource):
 
     def get(self):
 
+        print(users)
         res = {'all_users': str(users)}
         print(res)
         return marshal(res, users_fields), 200
