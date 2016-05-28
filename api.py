@@ -71,14 +71,14 @@ class UserRecs(Resource):
 
     def get(self, user_id):
 
-        return {'recs': users[user_id].recs}
+        return {'recs': str(users[user_id].recs)}
 
 
 class Users(Resource):
 
     def get(self):
 
-        return {'users': users}
+        return {'users': str(users)}
 
 api.add_resource(AddUser, '/adduser')
 api.add_resource(Users, '/users')
