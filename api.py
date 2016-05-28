@@ -105,7 +105,7 @@ class Users(Resource):
     def get(self):
 
         try:
-            print(users)
+            print(users.keys())
             res = {'all_users': str(users)}
             print(res)
             return marshal(res, users_fields), 200
