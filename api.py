@@ -11,7 +11,7 @@ app = Flask(__name__)
 api = Api(app)
 
 user_parser = RequestParser()
-user_parser.add_argument('user_id', type=int)
+user_parser.add_argument('user_id', type=str)
 user_parser.add_argument('song_name', type=str, action='append')
 user_parser.add_argument('song_artist', type=str, action='append')
 user_parser.add_argument('song_id', type=str, action='append')
@@ -27,9 +27,8 @@ class AddUser(Resource):
     def post(self):
 
         args = user_parser.parse_args()
-        print(args)
 
-        user_id = str(args['user_id'])
+        user_id = args['user_id']
 
         user_songs = []
 
