@@ -55,6 +55,8 @@ class AddUser(Resource):
 
         user.recs = get_user_recs(user, model)
 
+        return {'message': 'success'}
+
 
 song_fields = {
     'song_name': fields.String(),
