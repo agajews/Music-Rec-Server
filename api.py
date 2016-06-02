@@ -49,13 +49,17 @@ class AddUser(Resource):
         user = User(user_id, user_songs)
         users[user_id] = user
 
-        user.add_filenames()
-        user.add_wavs()
-        user.add_embeddings(model)
+        try:
+            user.add_filenames()
+            user.add_wavs()
+            user.add_embeddings(model)
 
-        user.recs = get_user_recs(user, model)
+            user.recs = get_user_recs(user, model)
 
-        return {'message': 'success'}
+            return {'message': 'success'}
+
+        except Exception as e:
+            return {'message': str(e)}
 
 
 song_fields = {
